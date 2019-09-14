@@ -18,7 +18,7 @@ def index():
     plt.savefig('static/img/plot.svg')
 
     # Student 2: Remove the index in the resulting html
-    tables = df.to_html(classes='table table-striped')
+    tables = df.to_html(index=False,classes='table table-striped')
 
     return render_template("index.html", tables=[tables])
 
@@ -27,8 +27,13 @@ def index():
 def students():
     # Student 1: Sort df on 'grade' inplace (inplace=True)
     # Student 2: Jsonify the response
+<<<<<<< HEAD
     students_dict = df.to_dict(orient='records').sort_values(inplace=True)
     return str(students_dict)
+=======
+    students_dict = df.to_dict(orient='records')
+    return jsonify(students_dict)
+>>>>>>> 335e5733ba717abdebb38f73655b04e7027dd030
 
 
 if __name__ == "__main__":
